@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 import { LineageosService } from '../lineageos.service';
 import { Build } from './build';
-import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-builds',
@@ -16,9 +16,9 @@ export class BuildsComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private service: LineageosService) { }
+  constructor(private readonly service: LineageosService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getBuilds();
   }
 

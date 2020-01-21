@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LineageosService } from '../lineageos.service';
-import { Build } from '../builds/build';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+
+import { LineageosService } from '../lineageos.service';
+import { Build } from '../builds/build';
 
 @Component({
   selector: 'app-device',
@@ -13,17 +14,17 @@ export class DeviceComponent implements OnInit {
 
   build: Build;
   constructor(
-    private route: ActivatedRoute,
-    private location: Location,
-    private service: LineageosService
+    private readonly route: ActivatedRoute,
+    private readonly location: Location,
+    private readonly service: LineageosService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const device = this.route.snapshot.paramMap.get('device');
     this.service.getDeviceInfo(device).subscribe(build => this.build = build);
   }
 
-  goBack() {
+  goBack(): void {
     this.location.back();
   }
 }
