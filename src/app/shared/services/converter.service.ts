@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Build } from './builds/build';
-import { BuildApi } from './build-api';
+import { Build } from '../entities/build';
+import { BuildApi } from '../entities/build-api';
+import { environment } from '../../../environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ConverterService {
-
-  private readonly ipfsUrl = 'https://lineageos-on-ipfs.com/ipfs';
 
   objectApiToObjectComponent(o: BuildApi): Build {
     if (o) {
       const b = new Build();
       b.version = o.version;
       b.filename = o.filename;
-      b.filepath = `${this.ipfsUrl}/${o.ipfs}/${o.filename}`;
+      b.filepath = `${environment.ipfsUrl}/${o.ipfs}/${o.filename}`;
       b.size = this.getSizeMb(o.size);
       b.ipfs = o.ipfs;
       b.device = o.device;

@@ -2,18 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { BuildApi } from './build-api';
+import { environment } from '../../../environments/environment';
+import { BuildApi } from '../entities/build-api';
 import { ConverterService } from './converter.service';
-import { Build } from './builds/build';
+import { Build } from '../entities/build';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LineageosService {
 
   builds: Build[] = [];
-
-  private readonly apiUrl = 'https://lineageos-on-ipfs.com/ajax/devices.php';
 
   constructor(
     private readonly httpClient: HttpClient,
@@ -22,7 +19,7 @@ export class LineageosService {
 
   getBuilds(): Observable<Build[]> {
     if (this.builds.length === 0) {
-      return this.httpClient.get<BuildApi[]>(this.apiUrl).pipe(
+      return this.httpClient.get<BuildApi[]>(environment.apiUrl).pipe(
         tap(_ => this.logInfo('fetched builds')),
         map(objs => {
           this.builds = this.converter.objectsApiToObjectsComponent(objs);

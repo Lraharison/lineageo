@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { LineageosService } from '../lineageos.service';
-import { Build } from './build';
+import { LineageosService } from '../../shared/services/lineageos.service';
+import { Build } from '../../shared/entities/build';
 
 @Component({
   selector: 'app-builds',

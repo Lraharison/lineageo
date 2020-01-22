@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { LineageosService } from '../lineageos.service';
-import { Build } from '../builds/build';
+import { LineageosService } from '../../shared/services/lineageos.service';
+import { Build } from '../../shared/entities/build';
 
 @Component({
   selector: 'app-device',
