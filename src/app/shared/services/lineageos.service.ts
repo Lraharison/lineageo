@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { BuildApi } from '../entities/build-api';
-import { ConverterService } from './converter.service';
 import { Build } from '../entities/build';
 
 @Injectable()
@@ -12,19 +10,12 @@ export class LineageosService {
 
   builds: Build[] = [];
 
-  constructor(
-    private readonly httpClient: HttpClient,
-    private readonly converter: ConverterService
-  ) { }
+  constructor(private readonly httpClient: HttpClient) { }
 
   getBuilds(): Observable<Build[]> {
     if (this.builds.length === 0) {
-      return this.httpClient.get<BuildApi[]>(environment.apiUrl).pipe(
+      return this.httpClient.get<Build[]>(environment.apiUrl).pipe(
         tap(_ => this.logInfo('fetched builds')),
-        map(objs => {
-          this.builds = this.converter.objectsApiToObjectsComponent(objs);
-          return this.builds;
-        }),
         catchError(err => {
           this.logError('getBuilds', err);
           return of([]);

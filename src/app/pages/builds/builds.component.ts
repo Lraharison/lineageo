@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { LineageosService } from '../../shared/services/lineageos.service';
 import { Build } from '../../shared/entities/build';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-builds',
@@ -15,6 +16,7 @@ export class BuildsComponent implements OnInit {
   dataSource = new MatTableDataSource<Build>([]);
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+  ipfsUrl: string = environment.ipfsUrl;
 
   constructor(private readonly service: LineageosService) { }
 

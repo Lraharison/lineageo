@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LineageosService } from './services/lineageos.service';
-import { ConverterService } from './services/converter.service';
+import { SizePipe } from './pipes/size.pipe';
 
 @NgModule({
-  declarations: [],
+  declarations: [SizePipe],
   imports: [
     CommonModule
   ],
-  providers: [LineageosService, ConverterService]
+  providers: [LineageosService],
+  exports: [SizePipe]
 })
 export class SharedModule { }
