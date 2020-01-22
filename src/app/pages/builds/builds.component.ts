@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-builds',
   templateUrl: './builds.component.html',
-  styleUrls: ['./builds.component.css']
+  styleUrls: ['./builds.component.scss']
 })
 export class BuildsComponent implements OnInit {
   displayedColumns: string[] = ['device', 'version', 'filename', 'size', 'date'];
