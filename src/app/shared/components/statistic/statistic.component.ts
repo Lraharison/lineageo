@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LineageosService } from '../../shared/services/lineageos.service';
-import { Stat } from '../../shared/entities/stat';
+import { LineageosService } from '../../services/lineageos.service';
+import { Stat } from '../../entities/stat';
 
 @Component({
   selector: 'app-statistic',

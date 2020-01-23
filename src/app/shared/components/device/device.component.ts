@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { TranslateService } from '@ngx-translate/core';
-import { LineageosService } from '../../shared/services/lineageos.service';
-import { Build } from '../../shared/entities/build';
+import { LineageosService } from '../../services/lineageos.service';
+import { Build } from '../../entities/build';
 
 @Component({
   selector: 'app-device',

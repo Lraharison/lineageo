@@ -3,9 +3,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { TranslateService } from '@ngx-translate/core';
-import { LineageosService } from '../../shared/services/lineageos.service';
-import { Build } from '../../shared/entities/build';
-import { environment } from '../../../environments/environment';
+import { LineageosService } from '../../services/lineageos.service';
+import { Build } from '../../entities/build';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-builds',
