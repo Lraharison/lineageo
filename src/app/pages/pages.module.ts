@@ -13,13 +13,15 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BuildsComponent } from './builds/builds.component';
 import { SharedModule } from '../shared/shared.module';
 import { DeviceComponent } from './device/device.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { StatisticComponent } from './statistic/statistic.component';
 
 @NgModule({
-  declarations: [BuildsComponent, DeviceComponent],
+  declarations: [BuildsComponent, DeviceComponent, StatisticComponent],
   imports: [
     HttpClientModule,
     MatTableModule,
@@ -36,7 +38,8 @@ import { AppRoutingModule } from '../app-routing.module';
     CommonModule,
     SharedModule,
     AppRoutingModule,
-    TranslateModule
+    TranslateModule,
+    NgxChartsModule
   ],
   exports: [BuildsComponent]
 })
