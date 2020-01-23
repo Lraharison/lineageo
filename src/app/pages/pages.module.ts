@@ -12,6 +12,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
 import { BuildsComponent } from './builds/builds.component';
 import { SharedModule } from '../shared/shared.module';
 import { DeviceComponent } from './device/device.component';
@@ -34,8 +35,9 @@ import { AppRoutingModule } from '../app-routing.module';
     BrowserAnimationsModule,
     CommonModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TranslateModule
   ],
   exports: [BuildsComponent]
 })
-export class PagesModule { }
+export class PagesModule {}

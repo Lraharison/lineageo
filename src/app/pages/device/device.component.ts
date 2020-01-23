@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { TranslateService } from '@ngx-translate/core';
 import { LineageosService } from '../../shared/services/lineageos.service';
 import { Build } from '../../shared/entities/build';
 
@@ -16,8 +17,9 @@ export class DeviceComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly location: Location,
-    private readonly service: LineageosService
-  ) { }
+    private readonly service: LineageosService,
+    private readonly translate: TranslateService
+  ) {}
 
   ngOnInit(): void {
     const device = this.route.snapshot.paramMap.get('device');

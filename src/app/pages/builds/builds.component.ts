@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { TranslateService } from '@ngx-translate/core';
 import { LineageosService } from '../../shared/services/lineageos.service';
 import { Build } from '../../shared/entities/build';
 import { environment } from '../../../environments/environment';
@@ -18,7 +19,9 @@ export class BuildsComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   ipfsUrl: string = environment.ipfsUrl;
 
-  constructor(private readonly service: LineageosService) { }
+  constructor(
+    private readonly service: LineageosService,
+    private readonly translate: TranslateService) {}
 
   ngOnInit(): void {
     this.getBuilds();
