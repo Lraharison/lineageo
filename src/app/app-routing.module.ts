@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { BuildsComponent } from './builds/builds.component';
-import { DeviceComponent } from './device/device.component';
-
+import { RouterModule, Routes } from '@angular/router';
+import { DeviceComponent } from './shared/components/device/device.component';
+import { PageBuildsComponent } from "./pages/page-builds/page-builds.component";
 
 const routes: Routes = [
-  { path: '', component: BuildsComponent },
+  { path: '', component: PageBuildsComponent },
   { path: ':device', component: DeviceComponent },
   { path: '', redirectTo: '/', pathMatch: 'full' }
 ];
@@ -14,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

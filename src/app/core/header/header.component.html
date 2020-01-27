@@ -1,0 +1,13 @@
+<div>
+  <div class="panel-left"><h1>{{'app.title' | translate}}</h1></div>
+  <div class="panel-right">
+    <select #selectedLang (change)="switchLang(selectedLang.value)">
+      <option *ngFor="let language of languages;trackBy: trackByFn"
+              [selected]="language === translate.currentLang"
+              [value]="language">
+        {{ language }}
+      </option>
+    </select>
+  </div>
+</div>
+

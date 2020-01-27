@@ -1,0 +1,12 @@
+{
+  "app.title": "Lineageos",
+  "filter.label": "Filter",
+  "device.column": "Device",
+  "version.column": "Version",
+  "file.column": "File",
+  "size.column": "Size",
+  "date.column": "Date",
+  "ipfs.column": "Ipfs",
+  "device.title": "Information for ",
+  "back.button": "Back"
+}

@@ -1,0 +1,47 @@
+<div class="mat-elevation-z8">
+  <div class="form">
+    <mat-form-field>
+      <input (keyup)="doFilter($event.target.value)" matInput placeholder="{{'filter.label' | translate}}"
+             type="text"/>
+    </mat-form-field>
+
+  </div>
+  <table [dataSource]="dataSource" mat-table matSort>
+
+    <ng-container matColumnDef="device">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> {{'device.column' | translate}}</th>
+      <td *matCellDef="let element" mat-cell><a routerLink="/{{element.device}}">{{element.device}}</a></td>
+    </ng-container>
+
+    <ng-container matColumnDef="version">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> {{'version.column' | translate}}</th>
+      <td *matCellDef="let element" mat-cell> {{element.version}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="filename">
+      <th *matHeaderCellDef mat-header-cell> {{'file.column' | translate}}</th>
+      <td *matCellDef="let element" mat-cell>
+        <div>
+          <section>{{element.filename}}</section>
+          <section><a href="{{ipfsUrl}}/{{element.ipfs}}/{{element.filename}}" target="_blank">{{element.ipfs}}</a>
+          </section>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="size">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> {{'size.column' | translate}}</th>
+      <td *matCellDef="let element" mat-cell> {{element.size | size}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> {{'date.column' | translate}}</th>
+      <td *matCellDef="let element" mat-cell> {{element.date}} </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
